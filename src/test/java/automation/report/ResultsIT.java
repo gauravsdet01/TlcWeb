@@ -37,6 +37,8 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 import org.zeroturnaround.zip.ZipUtil;
 
+import com.nexmo.client.NexmoClientException;
+
 import automation.utils.YamlReader;
 
 public class ResultsIT extends ReformatTestFile {
@@ -81,7 +83,7 @@ public class ResultsIT extends ReformatTestFile {
 	}
 
 	@Test(dependsOnMethods = "changeTimeStamp")
-	public void sendResultsMail() throws MessagingException, IOException {
+	public void sendResultsMail() throws MessagingException, IOException, NexmoClientException {
 
 		if (true) { // send email is true *************************
 			Message message = new MimeMessage(getSession());
@@ -96,6 +98,11 @@ public class ResultsIT extends ReformatTestFile {
 			transport.close();
 		}
 		System.out.println("Reports emailed");
+		if(count !=0)
+		{
+			SendSMS SS = new SendSMS();
+			SS.FailSMS();
+		}
 
 	}
 
@@ -111,7 +118,7 @@ public class ResultsIT extends ReformatTestFile {
 		return Session.getInstance(properties, authenticator);
 	}
 
-	private String setBodyText() throws IOException {
+	private String setBodyText() throws IOException, NexmoClientException {
 		List<String> failedResultsList = printFailedTestInformation();
 		String[] failedResultArray = new String[failedResultsList.size()];
 		for (int i = 0; i < failedResultArray.length; i++) {
@@ -164,7 +171,7 @@ public class ResultsIT extends ReformatTestFile {
 
 	}
 
-	private Multipart setAttachment() throws MessagingException, IOException {
+	private Multipart setAttachment() throws MessagingException, IOException, NexmoClientException {
 		//create screenshot zip folder
 		ZipUtil.pack(new File("./target/screenshots"), new File("./target/screenshots.zip"));
 
@@ -420,7 +427,7 @@ public class ResultsIT extends ReformatTestFile {
 		skippedResults = ele.getAttribute("skipped");
 	}
 
-	private List<String> printFailedTestInformation() {
+	private List<String> printFailedTestInformation() throws IOException, NexmoClientException {
 		String filepath = "./target/surefire-reports/testng-results.xml";
 		File file = new File(filepath);
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -438,6 +445,7 @@ public class ResultsIT extends ReformatTestFile {
 		}
 		List<String> list = identifyTagsAndTraverseThroguhElements(dom);
 		System.out.println("Number of Failed Test Cases:- " + count);
+		
 		return list;
 	}
 

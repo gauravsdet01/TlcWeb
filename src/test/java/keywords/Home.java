@@ -17,7 +17,7 @@ public class Home extends GetPage {
 	}
 	public void Ishomepage() {
 		hardWait(3);
-		element("Women").click();
+		element("n").click();
 		msg.log("Clicked on women");
 	}
 	public void MoveItemTOWishlist() {
