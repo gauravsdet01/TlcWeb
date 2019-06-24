@@ -15,7 +15,7 @@ public class SendSMS {
 	  String NEXMO_API_KEY = "667c1687";
       String NEXMO_API_SECRET = "098f4123c62c9530";
       String TO_NUMBER = "+917838061776"; 
-      String NEXMO_BRAND_NAME = "TLC";
+      String NEXMO_BRAND_NAME = "Automation";
       
       NexmoClient client = NexmoClient.builder().apiKey(NEXMO_API_KEY).apiSecret(NEXMO_API_SECRET).build();
 

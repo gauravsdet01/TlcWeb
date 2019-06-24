@@ -26,7 +26,7 @@ import automation.utils.TakeScreenshot;
 import keywords.LoginPage;
 import keywords.FacebookLogin;
 import keywords.GoogleLogin;
-//import keywords.NetworkFeedback;
+import keywords.WishList;
 //import keywords.NetworkFeedbackVerification;
 //import keywords.ResumeUpload;
 import keywords.Home;
@@ -59,7 +59,7 @@ public class SeleniumSession {
 	public Home HomePage;
 	public FacebookLogin FacebookPage;
 	public GoogleLogin GoogleLoginPage;
-	//public GiveFeedback giveFeedbackPage;
+	public WishList WishListPage;
 	//public NetworkFeedbackVerification	networkFeedbackVerificationPage;
 
 	public static HashMap<String, String> configSettings;
@@ -77,7 +77,7 @@ public class SeleniumSession {
 		loginPage = new LoginPage(driver);
 		HomePage = new Home(driver);
 		FacebookPage = new FacebookLogin(driver);
-	//	networkFeedbackPage	= new NetworkFeedback(driver);
+	    WishListPage	= new WishList(driver);
 	//	giveFeedbackPage = new GiveFeedback(driver);
 	    GoogleLoginPage = new GoogleLogin(driver);
 		

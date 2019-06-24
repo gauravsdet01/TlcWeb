@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import automation.session.SeleniumSession;
 import automation.utils.YamlReader;
 
-public class HomeTest {
+public class WishListTest {
 	SeleniumSession test;
 
 	@BeforeClass
@@ -19,27 +19,8 @@ public class HomeTest {
 		test.loginPage.login(YamlReader.getData("enterEmail"), YamlReader.getData("password"));
 	}
 
-	@Test(priority = 1)
-	public void Step01Homeverify() {
-//		test.networkFeedbackPage.navigateToDashboardPage();
-		test.HomePage.Ishomepage();
-
-	}
-
-	
-	  @Test(priority = 3)
-	  public void Step02WishlistMoveItem() {
-		  test.HomePage.MoveItemTOWishlist();
-	  
-	  } 
-	  
-	  @Test(priority=2)
-	  public void Step03BrandSearch() { 
-		  test.HomePage.SearchByBrand();
-	  
-	  }
-	  
-	  @Test(priority=4)
+  
+	  @Test(priority=1)
 	  public void Wishlist() { 
 		  test.launchApplication("https://theluxurycloset.com/my-account/my-wishlist");
 		  test.HomePage.SearchByBrand();

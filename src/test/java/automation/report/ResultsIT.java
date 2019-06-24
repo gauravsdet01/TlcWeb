@@ -99,7 +99,7 @@ public class ResultsIT extends ReformatTestFile {
 		}
 		System.out.println("Reports emailed");
 		if(count !=0)
-		{
+		{ 
 			SendSMS SS = new SendSMS();
 			SS.FailSMS();
 		}

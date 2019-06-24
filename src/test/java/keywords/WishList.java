@@ -9,11 +9,11 @@ import org.openqa.selenium.WebElement;
 import automation.getpageobjects.GetPage;
 import automation.utils.DataReadWrite;
 
-public class Home extends GetPage {
+public class WishList extends GetPage {
 
 	WebDriver driver;
 
-	public Home(WebDriver driver) {
+	public WishList(WebDriver driver) {
 		super(driver, "HomePage");
 		this.driver = driver;
 	}
