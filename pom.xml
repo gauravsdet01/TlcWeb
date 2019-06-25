@@ -168,6 +168,7 @@
 					<threadCount>10</threadCount>
 					<suiteXmlFiles>
 						<suiteXmlFile>src/test/resources/testngxmls/RegressionSuite.xml</suiteXmlFile>
+						<suiteXmlFile>src/test/resources/testngxmls/Mail.xml</suiteXmlFile>
 					</suiteXmlFiles>
 					<argLine>-Dfile.encoding=${project.build.sourceEncoding}</argLine>
 				</configuration>
