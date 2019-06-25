@@ -23,5 +23,11 @@
 			<class name="tests.GoogleLoginTest" />
 		</classes>
 	</test>
+	
+	<test name="WishList" parallel="false">
+		<classes>
+			<class name="tests.WishListTest" />
+		</classes>
+	</test>
 
 </suite>

@@ -21,11 +21,24 @@ public class WishListTest {
 
   
 	  @Test(priority=1)
-	  public void Wishlist() { 
-		  test.launchApplication("https://theluxurycloset.com/my-account/my-wishlist");
-		  test.HomePage.SearchByBrand();
-	  
+	  public void WishListRedirection() { 
+		  test.WishListPage.Wishurl();
+		  
 	  }
+	@Test(priority=2)
+	  public void WishListItemExists() { 
+			  test.WishListPage.WishListItemsPresent(); 
+	} 	
+	
+	@Test(priority=3)
+	  public void ItemAddtoCart() { 
+		  test.WishListPage.AddToCart(); 
+	} 
+		 
+		  //.to("http://www.facebook.com");
+		  
+	  
+	  
 	  
 	/*
 	 * @Test(priority=3) public void Step04ColorSearch() {

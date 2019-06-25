@@ -39,12 +39,6 @@ public class HomeTest {
 	  
 	  }
 	  
-	  @Test(priority=4)
-	  public void Wishlist() { 
-		  test.launchApplication("https://theluxurycloset.com/my-account/my-wishlist");
-		  test.HomePage.SearchByBrand();
-	  
-	  }
 	  
 	/*
 	 * @Test(priority=3) public void Step04ColorSearch() {

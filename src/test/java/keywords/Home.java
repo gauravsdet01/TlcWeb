@@ -59,14 +59,6 @@ public class Home extends GetPage {
 	
 	}
 	
-	public void WishListPage() {
-		String wishprod = element("ProductTextWish").getText();
-		System.out.println("Product is " + wishprod);
-		DataReadWrite.readDataFromFile("ProdText");
-		
-		msg.log("Search by color");
-	
-	}
 	
 	
 	

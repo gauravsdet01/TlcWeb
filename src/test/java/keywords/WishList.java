@@ -14,59 +14,45 @@ public class WishList extends GetPage {
 	WebDriver driver;
 
 	public WishList(WebDriver driver) {
-		super(driver, "HomePage");
+		super(driver, "WishListPage");
 		this.driver = driver;
 	}
 	
-	public void deleteIfFileExists() {
-		try {
-			File file = new File("src/test/resources/testdata/courseData.tmp");
-
-			if (file.delete()) {
-				System.out.println(file.getName() + " Was deleted!");
-			} else {
-				System.out.println("Delete Operation Failed. Check: " + file);
-			}
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		}
+	
+	public void Wishurl() {
+		driver.navigate().to("https://theluxurycloset.com/my-account/my-wishlist");
+		msg.log("User is redirected to Wishlist Page");
+		hardWait(3);
 	}
-	public void Ishomepage() {
+	public void WishListItemsPresent() {
+		if(ifElementDisplayedOnScreen("WishListEmpty") == true)
+		{
+		msg.log("Adding the item to wishlist first");
+		driver.navigate().to("https://theluxurycloset.com/");
 		hardWait(3);
 		element("Women").click();
 		msg.log("Clicked on women");
-	}
-	public void MoveItemTOWishlist() {
-		element("Heart").click();
-		msg.log("Clicked on Heart");
-		hardWait(5);
-	}
-	public void SearchByBrand() {
 		element("SearchBox").sendKeys("Gucc");
 		msg.log("Search by Gucci");
 		hardWait(3);
 		element("CheckBox").click();
 		msg.log("Search by Brand");
 		hardWait(7);
-		String ProdText = element("ProductText").getText();
-		System.out.println("Product Description " + ProdText);
-		deleteIfFileExists();
-		DataReadWrite.writeDataToFile("ProdText", ProdText);
+		element("Heart").click();
+		msg.log("Clicked on Heart");
+		hardWait(5);
+		driver.navigate().to("https://theluxurycloset.com/my-account/my-wishlist");
+		}
+		else
+		msg.log("There is an item exist in wishlist");
+		hardWait(3);
 	}
-	public void SearchByColor() {
-		element("CheckBoxColor").click();
-		msg.log("Search by color");
-	
+	public void AddToCart() {
+		element("ItemAddtoCart").click();
+		hardWait(5);
 	}
 	
-	public void WishListPage() {
-		String wishprod = element("ProductTextWish").getText();
-		System.out.println("Product is " + wishprod);
-		DataReadWrite.readDataFromFile("ProdText");
-		
-		msg.log("Search by color");
-	
-	}
+
 	
 	
 	
