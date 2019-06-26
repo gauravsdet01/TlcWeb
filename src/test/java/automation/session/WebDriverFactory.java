@@ -89,7 +89,7 @@ public class WebDriverFactory {
 		options.addArguments("--start-maximized");
 		options.addArguments("--disable-dev-shm-usage");
 		options.addArguments("no-sandbox");
-		options.addArguments("--headless");
+		
 		
 		Map<String, Object> prefs = new HashMap<String, Object>();
 		
