@@ -87,6 +87,7 @@ public class WebDriverFactory {
 		//options.addArguments("--start-fullscreen");
 		options.addArguments("--disable-extensions");
 		options.addArguments("--start-maximized");
+		options.addArguments("--disable-dev-shm-usage");
 		Map<String, Object> prefs = new HashMap<String, Object>();
 		
 		prefs.put("profile.default_content_settings.popups", 0);
