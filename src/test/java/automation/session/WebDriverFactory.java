@@ -83,14 +83,10 @@ public class WebDriverFactory {
 		ChromeOptions options = new ChromeOptions();
 		options.setExperimentalOption("useAutomationExtension", false);
 		DesiredCapabilities cap = DesiredCapabilities.chrome();
-		
-		options.addArguments("--headless");
-		//options.addArguments("--start-fullscreen");
-		options.addArguments("--no-sandbox");
-		//options.addArguments("--start-maximized");
-		options.addArguments("--disable-dev-shm-usage");
-		//options.addArguments("no-sandbox");
-		
+		options.addArguments("test-type");
+		options.addArguments("--start-fullscreen");
+		options.addArguments("--disable-extensions");
+		options.addArguments("--start-maximized");
 		
 		Map<String, Object> prefs = new HashMap<String, Object>();
 		
