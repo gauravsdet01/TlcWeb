@@ -81,7 +81,7 @@ public class WebDriverFactory {
 	private static WebDriver getChromeDriver(String driverpath) {
 		System.setProperty("webdriver.chrome.driver", driverpath);
 		ChromeOptions options = new ChromeOptions();
-		options.setExperimentalOption("useAutomationExtension", false);
+		//options.setExperimentalOption("useAutomationExtension", false);
 		DesiredCapabilities cap = DesiredCapabilities.chrome();
 		options.addArguments("--headless");
 		options.addArguments("--disable-gpu");
