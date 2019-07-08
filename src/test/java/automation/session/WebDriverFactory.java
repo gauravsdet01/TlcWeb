@@ -85,9 +85,11 @@ public class WebDriverFactory {
 		DesiredCapabilities cap = DesiredCapabilities.chrome();
 		options.addArguments("--headless");
 		options.addArguments("--disable-gpu");
+		
 		options.addArguments("--ignore-certificate-errors");
-		options.addArguments("--disable-dev-shm-usage");
 		options.addArguments("--no-sandbox");
+		options.addArguments("--disable-dev-shm-usage");
+		
 		
 		Map<String, Object> prefs = new HashMap<String, Object>();
 		
