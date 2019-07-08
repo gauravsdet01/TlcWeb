@@ -79,28 +79,17 @@ public class WebDriverFactory {
 	}
 
 	private static WebDriver getChromeDriver(String driverpath) {
-		System.setProperty("webdriver.chrome.driver", driverpath);
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--no-sandbox");
-		options.setExperimentalOption("useAutomationExtension", false);
-		DesiredCapabilities cap = DesiredCapabilities.chrome();
-		options.addArguments("--headless");
-		options.addArguments("--disable-gpu");
-		
-		options.addArguments("--ignore-certificate-errors");
-		options.addArguments("--no-sandbox");
-		options.addArguments("--disable-dev-shm-usage");
-		
-		
-		Map<String, Object> prefs = new HashMap<String, Object>();
-		
-		prefs.put("profile.default_content_settings.popups", 0);
-		
-		prefs.put("download.prompt_for_download",false);
-	    prefs.put("download.default_directory", System.getProperty("user.dir")+File.separator+"downloads");
-		options.setExperimentalOption("prefs", prefs);
-		cap.setCapability(ChromeOptions.CAPABILITY, options);
-		return new ChromeDriver(cap);
+		//System.setProperty("webdriver.chrome.driver", driverpath);
+		//ChromeOptions options = new ChromeOptions();
+		System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+    	//System.setProperty("webdriver.gecko.driver", "/usr/bin/geckodriver");
+    	//System.setProperty("webdriver.chrome.driver", "C:\\Users\\gaura\\git\\repository2\\WebdriverTest\\Driver\\chromedriver.exe");
+    	//driver = new ChromeDriver();
+    	ChromeOptions options = new ChromeOptions();  
+    	options.addArguments("--headless", "--disable-gpu", "--ignore-certificate-errors");
+    	
+    	//driver = new FirefoxDriver();
+		return new ChromeDriver(options);
 	}
 
 	private static WebDriver getInternetExplorerDriver(String driverpath) {
