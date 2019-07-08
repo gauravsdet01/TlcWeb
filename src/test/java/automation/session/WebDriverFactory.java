@@ -81,6 +81,7 @@ public class WebDriverFactory {
 	private static WebDriver getChromeDriver(String driverpath) {
 		System.setProperty("webdriver.chrome.driver", driverpath);
 		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--no-sandbox");
 		options.setExperimentalOption("useAutomationExtension", false);
 		DesiredCapabilities cap = DesiredCapabilities.chrome();
 		options.addArguments("--headless");
