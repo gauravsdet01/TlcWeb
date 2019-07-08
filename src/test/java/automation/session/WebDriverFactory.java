@@ -86,7 +86,8 @@ public class WebDriverFactory {
 		options.addArguments("--headless");
 		options.addArguments("--disable-gpu");
 		options.addArguments("--ignore-certificate-errors");
-		//options.addArguments("--start-maximized");
+		options.addArguments("--disable-dev-shm-usage");
+		options.addArguments("--no-sandbox");
 		
 		Map<String, Object> prefs = new HashMap<String, Object>();
 		
